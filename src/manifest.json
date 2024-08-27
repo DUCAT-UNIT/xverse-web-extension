@@ -1,6 +1,6 @@
 {
-  "name": "Xverse Wallet",
-  "description": "A Bitcoin Wallet for Web3",
+  "name": "Xverse Wallet Regtest",
+  "description": "A Bitcoin Regtest Wallet for Web3",
   "manifest_version": 3,
   "options_page": "options.html",
   "action": {
