@@ -139,32 +139,31 @@ export const isValidStacksApi = async (url: string, type: NetworkType): Promise<
   return false;
 };
 
-export const isValidBtcApi = async (url: string, network: NetworkType) => {
-  if (!validUrl.isUri(url)) {
-    return false;
-  }
+export const isValidBtcApi = async (url: string, network: NetworkType) => true
+  // if (!validUrl.isUri(url)) {
+  //   return false;
+  // }
 
-  const btcClient = new BitcoinEsploraApiProvider({
-    network,
-    url,
-  });
-  const defaultBtcClient = new BitcoinEsploraApiProvider({
-    network,
-  });
+  // const btcClient = new BitcoinEsploraApiProvider({
+  //   network,
+  //   url,
+  // });
 
-  try {
-    const [customHash, defaultHash] = await Promise.all([
-      btcClient.getBlockHash(1),
-      defaultBtcClient.getBlockHash(1),
-    ]);
-    // this ensures the URL is for correct network
-    return customHash === defaultHash;
-  } catch (e) {
-    return false;
-  }
+  // const defaultBtcClient = new BitcoinEsploraApiProvider({
+  //   network,
+  // });
 
-  return false;
-};
+  // try {
+  //   const [customHash, defaultHash] = await Promise.all([
+  //     btcClient.getBlockHash(1),
+  //     defaultBtcClient.getBlockHash(1),
+  //   ]);
+  //   // this ensures the URL is for correct network
+  //   return customHash === defaultHash;
+  // } catch (e) {
+  //   return false;
+  // }
+
 
 export const getNetworkType = (stxNetwork) =>
   stxNetwork.chainId === ChainID.Mainnet ? 'Mainnet' : 'Testnet';
